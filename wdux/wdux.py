@@ -205,7 +205,7 @@ def wdux_header(confpath):
     print
     center('wdux version %s' % __version__)
     center('configuration from "%s"  [%s]' % (confpath,wdlib.mtime(confpath)))
-    center('cluster package: %s       status: %s' % (cl_pkg, cl_sts))
+#    center('cluster package: %s       status: %s' % (cl_pkg, cl_sts))
     print sep
 
 

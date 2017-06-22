@@ -4,10 +4,8 @@
 # when doing clean up, save lastb -Rx output to ~watchdog/lastb.log
 # watchdog will then pick up the saved data
 
-if [ -r ~/lastb.log ]; then
-  sudo lastb $* && cat ~/lastb.log && mv ~/lastb.log ~/lastb.old
-else
-  sudo lastb $*
-fi
+dzdo lastb $* |awk '{print $1,$2,$3,$4,$5,$6,$7}'
+
+#| awk '{print $1,$2,$5,$6,$8,$7 }' 
 
 # lars appel 08.jan.08

@@ -326,7 +326,7 @@ def sudo_system(cmd, cdir='./'):
     # use sudo instead if the /etc/sudoers file exists
     if os.path.exists('/etc/sudoers'):
         if os.path.exists('/usr/local/bin/sudo'):
-            sucmd = 'sudo %s' % cmd
+            sucmd = 'dzdo %s' % cmd
     try_system('cd %s; %s' % (cdir, sucmd), abort=1)
 
 
