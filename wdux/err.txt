@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "./wdux.py", line 276, in ?
+    main()
+  File "./wdux.py", line 252, in main
+    scan_consolelog.main(options.filterOnTime)
+  File "/home/watchdog/wdux/scan_consolelog.py", line 284, in main
+    print wdlib.version_header(__file__,conspath)
+  File "/home/watchdog/wdux/wdlib.py", line 467, in version_header
+    filedt = mtime(file_,'week %W, %a %Y-%m-%d %H:%M')
+  File "/home/watchdog/wdux/wdlib.py", line 447, in mtime
+    mtime_serial = os.path.getmtime(fname)
+  File "/opt/iexpress/python/lib/python2.4/posixpath.py", line 143, in getmtime
+    return os.stat(filename).st_mtime
+OSError: [Errno 2] No such file or directory: 'files/console.log'

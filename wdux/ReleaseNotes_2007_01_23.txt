@@ -1,0 +1,25 @@
+
+changes since 2007-12-12 (42 days)
+
+----------------------------------------------------------------------
+changes grouped by filename, sorted by date
+----------------------------------------------------------------------
+
+
+wdux.py [2008-01-23 10:09]
+---------------------------
+2008-01-23
+    fix: has_all_conf_options(): wrong (undef) variable used in error msg
+         after rename of 'x' to 'parameter_tuple'
+
+
+----------------------------------------------------------------------
+changes grouped by date, sorted by filename
+----------------------------------------------------------------------
+
+
+2008-01-23
+----------
+wdux.py
+    fix: has_all_conf_options(): wrong (undef) variable used in error msg
+         after rename of 'x' to 'parameter_tuple'

@@ -1,0 +1,133 @@
+
+changes since 2007-11-14 (16 days)
+
+----------------------------------------------------------------------
+changes grouped by filename, sorted by date
+----------------------------------------------------------------------
+
+
+check_passwd.py [2007-11-29 15:29]
+-----------------------------------
+2007-11-19
+    chg: validity check on passwd filename: no wildcards allowed
+2007-11-29
+    chg: main: added debug output in verbose mode
+
+scan_consolelog.py [2007-11-30 10:35]
+--------------------------------------
+2007-11-21
+    chg: main: no check for log file existance (might be multi-file)
+    chg: parse: determine starting date from current time if multiple
+         logfiles are used
+2007-11-24
+    chg: 1 of 2 file scans unnecessary if not in verbose mode
+
+scan_last.py [2007-11-29 13:49]
+--------------------------------
+2007-11-29
+    add: parse_lastcommands: sort output ascending
+
+scan_syslog.py [2007-11-24 21:03]
+----------------------------------
+2007-11-21
+    add: split_syslog: added virgin flag for each output file to see if it
+         has been written to (replaces filehandle.tell())
+    fix: split_syslog: specify write mode for open_tmp call
+2007-11-24
+    chg: main: no check for log file existance (might be multi-file)
+    add: parse_*: added virgin flag for each tmp file to see if it
+         has been written to (replaces filehandle.tell())
+    add: added 'dead' keyword for unknown sources
+
+wdlib.py [2007-11-30 10:39]
+----------------------------
+2007-11-19
+    add: get_path()
+    chg: out_path, tmp_path, open_out, open_tmp call get_path
+    chg: convEOL: mkdir of destination dir is already handled by
+         createfile()
+    add: opens(): open() replacement supporting filename
+         pattern(s); recursive if wildcard in path
+    chg: openfile() uses opens() now (multi-file input)
+2007-11-21
+    chg: has_wildcards new
+    chg: opens() non-wildcard file is opened by regular open()
+2007-11-24
+    chg: _months initialized statically
+    chg: opens: if there is only 1 file to open (even if wildcards are used)
+         then a regular open() is used
+    fix: open_out, open_tmp: test for write mode now includes append mode
+    fix: createfile: file was created without path
+2007-11-29
+    fix: redirect_stdout: accept empty filename or UNIX style '-' to
+         direct output to the screen
+    add: opens(): sorts filename list
+
+wdux.py [2007-11-29 15:27]
+---------------------------
+2007-11-29
+    fix: convert_conf: test for and prefix 'DAILY' string using OS specific
+         routines
+
+
+----------------------------------------------------------------------
+changes grouped by date, sorted by filename
+----------------------------------------------------------------------
+
+
+2007-11-19
+----------
+check_passwd.py
+    chg: validity check on passwd filename: no wildcards allowed
+wdlib.py
+    add: get_path()
+    chg: out_path, tmp_path, open_out, open_tmp call get_path
+    chg: convEOL: mkdir of destination dir is already handled by
+         createfile()
+    add: opens(): open() replacement supporting filename
+         pattern(s); recursive if wildcard in path
+    chg: openfile() uses opens() now (multi-file input)
+
+2007-11-21
+----------
+scan_consolelog.py
+    chg: main: no check for log file existance (might be multi-file)
+    chg: parse: determine starting date from current time if multiple
+         logfiles are used
+scan_syslog.py
+    add: split_syslog: added virgin flag for each output file to see if it
+         has been written to (replaces filehandle.tell())
+    fix: split_syslog: specify write mode for open_tmp call
+wdlib.py
+    chg: has_wildcards new
+    chg: opens() non-wildcard file is opened by regular open()
+
+2007-11-24
+----------
+scan_consolelog.py
+    chg: 1 of 2 file scans unnecessary if not in verbose mode
+scan_syslog.py
+    chg: main: no check for log file existance (might be multi-file)
+    add: parse_*: added virgin flag for each tmp file to see if it
+         has been written to (replaces filehandle.tell())
+    add: added 'dead' keyword for unknown sources
+wdlib.py
+    chg: _months initialized statically
+    chg: opens: if there is only 1 file to open (even if wildcards are used)
+         then a regular open() is used
+    fix: open_out, open_tmp: test for write mode now includes append mode
+    fix: createfile: file was created without path
+
+2007-11-29
+----------
+check_passwd.py
+    chg: main: added debug output in verbose mode
+scan_last.py
+    add: parse_lastcommands: sort output ascending
+wdlib.py
+    fix: redirect_stdout: accept empty filename or UNIX style '-' to
+         direct output to the screen
+    add: opens(): sorts filename list
+wdux.py
+    fix: convert_conf: test for and prefix 'DAILY' string using OS specific
+         routines

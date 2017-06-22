@@ -1,0 +1,313 @@
+
+changes since 2006-08-30 (37 days)
+
+----------------------------------------------------------------------
+changes grouped by filename, sorted by date
+----------------------------------------------------------------------
+
+
+check_passwd.py [2006-09-26 17:23]
+-----------------------------------
+2006-08-30
+    fix: parse_passwd: passwdpath is handed over to get_passwd
+2006-09-18
+    chg: header included in detailed output file, not in report only
+    add: write_results will print file structure errors if any
+2006-09-25
+    chg: use wdlib.open_out
+2006-09-26
+    chg: write_results: output format
+    chg: parse_passwd: time filter on period
+    fix: removed debug print statement
+
+lastlib.py [2006-09-25 17:11]
+------------------------------
+2006-09-22
+    add: new attribute ttytype: does not contain specific tty number
+    fix: last line containing starting date is skipped now
+
+passwdlib.py [2006-09-18 16:20]
+--------------------------------
+2006-08-30
+    chg: get_passwd: expected no. of fields in record now a constant
+    chg: PWD_* indices assigned via range()
+2006-09-18
+    fix: err() def missing
+    chg: get_passwd: lines with wrong format will be indicated, but
+         processing will continue (without them)
+    add: get_passwd: return list of errors if any
+
+scan_consolelog.py [2006-09-28 13:57]
+--------------------------------------
+2006-09-18
+    fix: parse: adjusted output format string for elapsedstr() which
+         always has 10 chars
+    chg: parse: will not record file offset after writing header (unused
+         feature)
+    fix: parse: wdlib.countlines() unreliable for unknown reasons;
+         now output is counted on write
+    fix: parse: all timestamps will be read now to obtain an accurate
+         day roll-over; slows down processing a lot.
+    chg: parse: day roll-over recognized when time is more than 1 min
+         earlier than preceeding time
+2006-09-22
+    chg: parse: store absolute normalized pathname in fname
+    chg: parse: empty output files are deleted
+    add: parse: output is sorted by timestamp now
+    add: parse: console warnings now with timestamp
+2006-09-25
+    chg: use wdlib.out_path
+    chg: use timefmt for timestamps, w/o seconds
+    chg: use dedicated logons dict for collecting logons, not _events
+2006-09-26
+    chg: parse: time filter on period
+    fix: parse: ignore errorenous backslash in job/session ID
+
+scan_last.py [2006-09-26 17:08]
+--------------------------------
+2006-08-31
+    add: lastb output now contains tty column
+2006-09-22
+    chg: parse_lastcommands: use ttytype, not tty, for output to suppress specific tty info
+2006-09-25
+    chg: use wdlib.open_out
+2006-09-26
+    chg: sequence of command: failed first
+    chg: no need for specific report routine for each cmd
+    chg: parse_lastcommands: time filter on period
+
+scan_syslog.py [2006-09-27 14:09]
+----------------------------------
+2006-08-30
+    fix: main: skipIfNotParsed was always True; now read from conf file
+    fix: reportOn_allsources: '_OK' files were opened even though keep_OK
+         was False
+2006-09-01
+    fix: reportOn_allsources: check for OK files did not catch empty
+         FAIL files; now check file existance instead
+2006-09-18
+    fix: parse_sudo: COMMAND may contain semicolon(s) and white space
+    fix: reportOn_general: optionally skip more columns when reporting
+2006-09-25
+    fix: parse_ftpd: _FAIL output needs to have 3 columns just like _OK
+         otherwise report will contain garbled message
+    fix: reportOn_general: no continuation dots if msg is shorter
+    chg: reportOn_general: words to keep is a parameter (e.g. 1 for sudo)
+         enhancing the information content of the report
+    chg: open_inouterr, reportOn_allsources: use wdlib.out_path
+    chg: FAIL keywords added: 'deactivat', 'forbidden'
+2006-09-26
+    chg: split_syslog: time filter on period
+
+wdlib.py [2006-09-29 10:42]
+----------------------------
+2006-08-30
+    add: boolfromconf()
+    add: open_out, open_tmp: construct filename in report dir (very often
+         used; meant to keep the folder logic locally)
+    add: rmdir()
+    fix: myversion: mtime needs absolute pathname
+    add: convEOL: add/remove filename extension
+2006-08-31
+    add: set_configfile: default folder is folder where script is run from
+2006-09-25
+    add: clearfolder(), use instead of rmdir()
+    add: out_path, tmp_path companions to open_out, open_tmp
+    add: is_IPaddr, IP2host (not yet used)
+2006-09-26
+    add: center()
+    chg: myversion: format changes
+    chg: write_header: do not print file modify date (is always current)
+    chg: write_header: include timefilter period info
+    chg: set_timefilter: introduce upper bound on time filter interval
+    add: period_str (timefilter period info)
+2006-09-28
+    fix: convEOL(): do not convert to DOS if already in DOS mode
+
+wdux.py [2006-09-29 09:11]
+---------------------------
+2006-08-30
+    fix: get_reportname: today's date was fetched from conf file before it
+         was written to it; replaced by function
+    chg: main: list of modules used instead of enumeration
+    add: output and tmp dirs are removed before run; otherwise, a report
+         may be generated with stale (old) data
+    chg: make_copies: worked over; file extension handling
+    chg: daily dir format leading '_' removed, dirs renamed
+2006-09-25
+    chg: create_folderstructure: do not delete tmp folder
+         anymore (might be system tmp folder)
+    chg: create_folderstructure: use clearfolder instead of rmdir on
+         output folders
+    fix: convert_conf: did not convert '_*' daily dirs
+2006-09-26
+    chg: extended wdux_header (title, date, hostname)
+    add: contents struct; print_overview
+    chg: reshuffled options in conf.file to group options that are written
+         together in sections CURRENT RUN and STATUS
+2006-09-27
+    add: has_all_conf_options(): check all mandatory config parameters
+         beforehand
+    chg: conf param 'PATHS/OUT_PATH' removed
+
+wdux_configfile.py [2006-09-26 14:16]
+--------------------------------------
+2006-09-26
+    chg: do not store OS to config file
+    chg: store hostname to different conf section
+
+
+----------------------------------------------------------------------
+changes grouped by date, sorted by filename
+----------------------------------------------------------------------
+
+
+2006-08-30
+----------
+check_passwd.py
+    fix: parse_passwd: passwdpath is handed over to get_passwd
+passwdlib.py
+    chg: get_passwd: expected no. of fields in record now a constant
+    chg: PWD_* indices assigned via range()
+scan_syslog.py
+    fix: main: skipIfNotParsed was always True; now read from conf file
+    fix: reportOn_allsources: '_OK' files were opened even though keep_OK
+         was False
+wdlib.py
+    add: boolfromconf()
+    add: open_out, open_tmp: construct filename in report dir (very often
+         used; meant to keep the folder logic locally)
+    add: rmdir()
+    fix: myversion: mtime needs absolute pathname
+    add: convEOL: add/remove filename extension
+wdux.py
+    fix: get_reportname: today's date was fetched from conf file before it
+         was written to it; replaced by function
+    chg: main: list of modules used instead of enumeration
+    add: output and tmp dirs are removed before run; otherwise, a report
+         may be generated with stale (old) data
+    chg: make_copies: worked over; file extension handling
+    chg: daily dir format leading '_' removed, dirs renamed
+
+2006-08-31
+----------
+scan_last.py
+    add: lastb output now contains tty column
+wdlib.py
+    add: set_configfile: default folder is folder where script is run from
+
+2006-09-01
+----------
+scan_syslog.py
+    fix: reportOn_allsources: check for OK files did not catch empty
+         FAIL files; now check file existance instead
+
+2006-09-18
+----------
+check_passwd.py
+    chg: header included in detailed output file, not in report only
+    add: write_results will print file structure errors if any
+passwdlib.py
+    fix: err() def missing
+    chg: get_passwd: lines with wrong format will be indicated, but
+         processing will continue (without them)
+    add: get_passwd: return list of errors if any
+scan_consolelog.py
+    fix: parse: adjusted output format string for elapsedstr() which
+         always has 10 chars
+    chg: parse: will not record file offset after writing header (unused
+         feature)
+    fix: parse: wdlib.countlines() unreliable for unknown reasons;
+         now output is counted on write
+    fix: parse: all timestamps will be read now to obtain an accurate
+         day roll-over; slows down processing a lot.
+    chg: parse: day roll-over recognized when time is more than 1 min
+         earlier than preceeding time
+scan_syslog.py
+    fix: parse_sudo: COMMAND may contain semicolon(s) and white space
+    fix: reportOn_general: optionally skip more columns when reporting
+
+2006-09-22
+----------
+lastlib.py
+    add: new attribute ttytype: does not contain specific tty number
+    fix: last line containing starting date is skipped now
+scan_consolelog.py
+    chg: parse: store absolute normalized pathname in fname
+    chg: parse: empty output files are deleted
+    add: parse: output is sorted by timestamp now
+    add: parse: console warnings now with timestamp
+scan_last.py
+    chg: parse_lastcommands: use ttytype, not tty, for output to suppress specific tty info
+
+2006-09-25
+----------
+check_passwd.py
+    chg: use wdlib.open_out
+scan_consolelog.py
+    chg: use wdlib.out_path
+    chg: use timefmt for timestamps, w/o seconds
+    chg: use dedicated logons dict for collecting logons, not _events
+scan_last.py
+    chg: use wdlib.open_out
+scan_syslog.py
+    fix: parse_ftpd: _FAIL output needs to have 3 columns just like _OK
+         otherwise report will contain garbled message
+    fix: reportOn_general: no continuation dots if msg is shorter
+    chg: reportOn_general: words to keep is a parameter (e.g. 1 for sudo)
+         enhancing the information content of the report
+    chg: open_inouterr, reportOn_allsources: use wdlib.out_path
+    chg: FAIL keywords added: 'deactivat', 'forbidden'
+wdlib.py
+    add: clearfolder(), use instead of rmdir()
+    add: out_path, tmp_path companions to open_out, open_tmp
+    add: is_IPaddr, IP2host (not yet used)
+wdux.py
+    chg: create_folderstructure: do not delete tmp folder
+         anymore (might be system tmp folder)
+    chg: create_folderstructure: use clearfolder instead of rmdir on
+         output folders
+    fix: convert_conf: did not convert '_*' daily dirs
+
+2006-09-26
+----------
+check_passwd.py
+    chg: write_results: output format
+    chg: parse_passwd: time filter on period
+    fix: removed debug print statement
+scan_consolelog.py
+    chg: parse: time filter on period
+    fix: parse: ignore errorenous backslash in job/session ID
+scan_last.py
+    chg: sequence of command: failed first
+    chg: no need for specific report routine for each cmd
+    chg: parse_lastcommands: time filter on period
+scan_syslog.py
+    chg: split_syslog: time filter on period
+wdlib.py
+    add: center()
+    chg: myversion: format changes
+    chg: write_header: do not print file modify date (is always current)
+    chg: write_header: include timefilter period info
+    chg: set_timefilter: introduce upper bound on time filter interval
+    add: period_str (timefilter period info)
+wdux.py
+    chg: extended wdux_header (title, date, hostname)
+    add: contents struct; print_overview
+    chg: reshuffled options in conf.file to group options that are written
+         together in sections CURRENT RUN and STATUS
+wdux_configfile.py
+    chg: do not store OS to config file
+    chg: store hostname to different conf section
+
+2006-09-27
+----------
+wdux.py
+    add: has_all_conf_options(): check all mandatory config parameters
+         beforehand
+    chg: conf param 'PATHS/OUT_PATH' removed
+
+2006-09-28
+----------
+wdlib.py
+    fix: convEOL(): do not convert to DOS if already in DOS mode

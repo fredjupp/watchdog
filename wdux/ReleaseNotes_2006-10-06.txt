@@ -1,0 +1,328 @@
+
+changes since 2006-10-06 (335 days)
+
+----------------------------------------------------------------------
+changes grouped by filename, sorted by date
+----------------------------------------------------------------------
+
+
+check_passwd.py [2007-08-10 17:42]
+-----------------------------------
+2007-08-08
+    chg: global variable __file__ sometimes undefined; wrapped
+2007-08-10
+    fix: various: if return False is used to signal a failure, an explicit
+         return True must be coded when successful!
+    fix: main: abort if passwd file not accessible
+    fix: main: removed get_status call (superfl.)
+
+confparserlib.py [2007-08-08 15:47]
+------------------------------------
+2007-08-08
+    chg: global variable __file__ sometimes undefined; wrapped
+
+lastlib.py [2007-08-08 15:34]
+------------------------------
+2007-08-08
+    chg: global variable __file__ sometimes undefined; wrapped
+
+passwdlib.py [2007-08-08 15:33]
+--------------------------------
+2007-07-31
+    chg: if the passwd file is not readable, return error msg
+         (do not use sys.exit(1))
+    chg: module 'sys' no longer needed
+2007-08-08
+    chg: global variable __file__ sometimes undefined; wrapped
+
+scan_consolelog.py [2007-08-10 17:23]
+--------------------------------------
+2006-10-24
+    chg: parse: get file creation date before opening the logfile
+    add: parse: print file creation date if interactive
+2006-10-25
+    chg: integrated get_consolelog_path() from consoleloglib.py and deleted
+         the library consloglib.py
+    chg: parse: parse (artificial) timestamp lines in the logfile to get the
+         correct date; use modified date if no such line encountered (yet)
+         format: "HH:mm/YYYY-MM-DD/current timestamp"
+2007-07-31
+    chg: main: abort if subroutines return error status
+    fix: parse_: remember timestamp line time to detect rollover of next
+         log entry
+    add: parse_: display running line count approx. 10 times; (has to count
+         lines twice)
+2007-08-08
+    chg: global variable __file__ sometimes undefined; wrapped
+2007-08-10
+    fix: main: if return False is used to signal a failure, an explicit
+         return True must be coded when successful!
+    fix: some err() statements without trailing newline
+    fix: main: abort if logfile not accessible
+
+scan_last.py [2007-08-10 17:39]
+--------------------------------
+2007-07-11
+    fix: parse_lastcommands: outfmt provided only 7 instead of 10 places
+         for duration
+2007-08-08
+    chg: global variable __file__ sometimes undefined; wrapped
+2007-08-10
+    fix: parse_lastcommands: check if command output is empty
+
+scan_syslog.py [2007-08-10 17:23]
+----------------------------------
+2007-07-31
+    chg: main: abort if no path to syslog file
+    chg: main: abort if split_syslog and parse_allsources return error status
+    add: open_inouterr: propagate error status
+    add: split_syslog: return error status to caller
+    chg: removed time module import
+    chg: integrated get_syslog_path() from sysloglib.py
+    chg: get_syslog_path: always read path, no default, no param
+2007-08-08
+    chg: global variable __file__ sometimes undefined; wrapped
+2007-08-10
+    fix: various: if return False is used to signal a failure, an explicit
+         return True must be coded when successful!
+    fix: some err() statements without trailing newline
+    fix: main: abort if logfile not accessible
+
+sysloglib.py [2007-08-08 15:24]
+--------------------------------
+2007-07-31
+    chg: moved get_syslog_path() to scan_syslog.py
+2007-08-08
+    chg: global variable __file__ sometimes undefined; wrapped
+
+wdlib.py [2007-08-10 16:58]
+----------------------------
+2006-10-16
+    add: invdict()
+2006-10-24
+    chg: convEOL: more verbose output; output file is created even if no
+         conversion is necessary
+2007-07-11
+    chg: elapsedstr() replaced
+2007-07-13
+    chg: printTopN rewritten, saved in old_printTopN
+    chg: skip_header: return empty header if second separator is not found
+    fix: pr: corrected output for (arg < 0) and floats
+2007-07-30
+    chg: redirect_stdout: changed logic to toggle stdout; 2nd parameter
+         is unnecessary; no sys.exit() call
+    add: convEOL: error handler for os.stat() call
+    chg: check_conf: return None if IOError occurs, do not use sys.exit()
+2007-08-08
+    chg: period_str: show time interval without seconds
+    chg: period_str: 'events from..only' instead of 'time filter:'
+    chg: global variable __file__ sometimes undefined; wrapped
+    add: redirect_stdout: changed logic whether stdout is redirected
+         or not; robust if called more than once
+    chg: (various fcts): use global separator line variable (sepln)
+2007-08-10
+    fix: various: if return False is used to signal a failure, an explicit
+         return True must be coded when successful!
+    chg: printTopN: 'events' instead of 'entries'
+    fix: some err() statements without trailing newline
+
+wdux.py [2007-08-24 15:00]
+---------------------------
+2007-07-30
+    chg: main: abort if stdout cannot be redirected to report file
+    chg: crucial() integrated into has_all_conf_options()
+    chg: cleanup: exit(failed) instead of exit(1)
+2007-08-08
+    chg: global variable __file__ sometimes undefined; wrapped
+    chg: global separator line (sep) for all occurrences
+    chg: wdux_header: wdlib.center made local
+    chg: main: verbose flag is set at runtime, not in module wdlib
+2007-08-09
+    add: create_folder_structure: added error exits
+2007-08-10
+    chg: print_overview: renamed global var 'contents' to 'module_descriptions'
+    add: make_copies: quit silently if nothing to copy
+    fix: various: if return False is used to signal a failure, an explicit
+         return True must be coded when successful!
+    fix: some err() statements without trailing newline
+2007-08-11
+    chg: make_copies: reports in daily folder must have unique names
+         as there might be several different ones there
+    chg: daily folders moved to subfolder 'DAILY'
+    fix: convert_conf: folders not renamed if DAILY_FMT setting was correct
+         which is independent of each other
+2007-08-24
+    add: get_clusterstatus(), global vars cl_pkg, cl_sts
+    add: cluster status in report header
+
+wdux_configfile.py [2007-08-08 15:46]
+--------------------------------------
+2007-07-30
+    add: error handler for os.stat() calls in Settings.save()
+2007-08-08
+    chg: global variable __file__ sometimes undefined; wrapped
+
+
+----------------------------------------------------------------------
+changes grouped by date, sorted by filename
+----------------------------------------------------------------------
+
+
+2006-10-16
+----------
+wdlib.py
+    add: invdict()
+
+2006-10-24
+----------
+scan_consolelog.py
+    chg: parse: get file creation date before opening the logfile
+    add: parse: print file creation date if interactive
+wdlib.py
+    chg: convEOL: more verbose output; output file is created even if no
+         conversion is necessary
+
+2006-10-25
+----------
+scan_consolelog.py
+    chg: integrated get_consolelog_path() from consoleloglib.py and deleted
+         the library consloglib.py
+    chg: parse: parse (artificial) timestamp lines in the logfile to get the
+         correct date; use modified date if no such line encountered (yet)
+         format: "HH:mm/YYYY-MM-DD/current timestamp"
+
+2007-07-11
+----------
+scan_last.py
+    fix: parse_lastcommands: outfmt provided only 7 instead of 10 places
+         for duration
+wdlib.py
+    chg: elapsedstr() replaced
+
+2007-07-13
+----------
+wdlib.py
+    chg: printTopN rewritten, saved in old_printTopN
+    chg: skip_header: return empty header if second separator is not found
+    fix: pr: corrected output for (arg < 0) and floats
+
+2007-07-30
+----------
+wdlib.py
+    chg: redirect_stdout: changed logic to toggle stdout; 2nd parameter
+         is unnecessary; no sys.exit() call
+    add: convEOL: error handler for os.stat() call
+    chg: check_conf: return None if IOError occurs, do not use sys.exit()
+wdux.py
+    chg: main: abort if stdout cannot be redirected to report file
+    chg: crucial() integrated into has_all_conf_options()
+    chg: cleanup: exit(failed) instead of exit(1)
+wdux_configfile.py
+    add: error handler for os.stat() calls in Settings.save()
+
+2007-07-31
+----------
+passwdlib.py
+    chg: if the passwd file is not readable, return error msg
+         (do not use sys.exit(1))
+    chg: module 'sys' no longer needed
+scan_consolelog.py
+    chg: main: abort if subroutines return error status
+    fix: parse_: remember timestamp line time to detect rollover of next
+         log entry
+    add: parse_: display running line count approx. 10 times; (has to count
+         lines twice)
+scan_syslog.py
+    chg: main: abort if no path to syslog file
+    chg: main: abort if split_syslog and parse_allsources return error status
+    add: open_inouterr: propagate error status
+    add: split_syslog: return error status to caller
+    chg: removed time module import
+    chg: integrated get_syslog_path() from sysloglib.py
+    chg: get_syslog_path: always read path, no default, no param
+sysloglib.py
+    chg: moved get_syslog_path() to scan_syslog.py
+
+2007-08-08
+----------
+check_passwd.py
+    chg: global variable __file__ sometimes undefined; wrapped
+confparserlib.py
+    chg: global variable __file__ sometimes undefined; wrapped
+lastlib.py
+    chg: global variable __file__ sometimes undefined; wrapped
+passwdlib.py
+    chg: global variable __file__ sometimes undefined; wrapped
+scan_consolelog.py
+    chg: global variable __file__ sometimes undefined; wrapped
+scan_last.py
+    chg: global variable __file__ sometimes undefined; wrapped
+scan_syslog.py
+    chg: global variable __file__ sometimes undefined; wrapped
+sysloglib.py
+    chg: global variable __file__ sometimes undefined; wrapped
+wdlib.py
+    chg: period_str: show time interval without seconds
+    chg: period_str: 'events from..only' instead of 'time filter:'
+    chg: global variable __file__ sometimes undefined; wrapped
+    add: redirect_stdout: changed logic whether stdout is redirected
+         or not; robust if called more than once
+    chg: (various fcts): use global separator line variable (sepln)
+wdux.py
+    chg: global variable __file__ sometimes undefined; wrapped
+    chg: global separator line (sep) for all occurrences
+    chg: wdux_header: wdlib.center made local
+    chg: main: verbose flag is set at runtime, not in module wdlib
+wdux_configfile.py
+    chg: global variable __file__ sometimes undefined; wrapped
+
+2007-08-09
+----------
+wdux.py
+    add: create_folder_structure: added error exits
+
+2007-08-10
+----------
+check_passwd.py
+    fix: various: if return False is used to signal a failure, an explicit
+         return True must be coded when successful!
+    fix: main: abort if passwd file not accessible
+    fix: main: removed get_status call (superfl.)
+scan_consolelog.py
+    fix: main: if return False is used to signal a failure, an explicit
+         return True must be coded when successful!
+    fix: some err() statements without trailing newline
+    fix: main: abort if logfile not accessible
+scan_last.py
+    fix: parse_lastcommands: check if command output is empty
+scan_syslog.py
+    fix: various: if return False is used to signal a failure, an explicit
+         return True must be coded when successful!
+    fix: some err() statements without trailing newline
+    fix: main: abort if logfile not accessible
+wdlib.py
+    fix: various: if return False is used to signal a failure, an explicit
+         return True must be coded when successful!
+    chg: printTopN: 'events' instead of 'entries'
+    fix: some err() statements without trailing newline
+wdux.py
+    chg: print_overview: renamed global var 'contents' to 'module_descriptions'
+    add: make_copies: quit silently if nothing to copy
+    fix: various: if return False is used to signal a failure, an explicit
+         return True must be coded when successful!
+    fix: some err() statements without trailing newline
+
+2007-08-11
+----------
+wdux.py
+    chg: make_copies: reports in daily folder must have unique names
+         as there might be several different ones there
+    chg: daily folders moved to subfolder 'DAILY'
+    fix: convert_conf: folders not renamed if DAILY_FMT setting was correct
+         which is independent of each other
+
+2007-08-24
+----------
+wdux.py
+    add: get_clusterstatus(), global vars cl_pkg, cl_sts
+    add: cluster status in report header

@@ -1,0 +1,27 @@
+
+changes since 2007-12-08 (3 days)
+
+----------------------------------------------------------------------
+changes grouped by filename, sorted by date
+----------------------------------------------------------------------
+
+
+wdux.py [2007-12-11 16:41]
+---------------------------
+2007-12-11
+    fix: convert_conf: wrong action if path already contained 'daily'
+    chg: daily_dir, create_folder_structure: path is not set to uppercase
+         any more
+
+
+----------------------------------------------------------------------
+changes grouped by date, sorted by filename
+----------------------------------------------------------------------
+
+
+2007-12-11
+----------
+wdux.py
+    fix: convert_conf: wrong action if path already contained 'daily'
+    chg: daily_dir, create_folder_structure: path is not set to uppercase
+         any more

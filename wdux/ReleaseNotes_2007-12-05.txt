@@ -1,0 +1,61 @@
+
+changes since 2007-11-25 (10 days)
+
+----------------------------------------------------------------------
+changes grouped by filename, sorted by date
+----------------------------------------------------------------------
+
+
+check_passwd.py [2007-11-29 15:29]
+-----------------------------------
+2007-11-29
+    chg: main: added debug output in verbose mode
+
+scan_last.py [2007-11-29 13:49]
+--------------------------------
+2007-11-29
+    add: parse_lastcommands: sort output ascending
+
+wdlib.py [2007-12-05 10:40]
+----------------------------
+2007-11-29
+    fix: redirect_stdout: accept UNIX style '-' to direct output to stdout
+    add: opens(): sorts filename list
+    del: deleted old_printTopN()
+
+wdux.py [2007-12-05 10:06]
+---------------------------
+2007-11-29
+    fix: convert_conf: test for and prefix 'DAILY' string using OS specific
+         routines
+2007-12-05
+    chg: dailydir: use wdlib.datestr() like everywhere else
+    chg: get_reportname: do not force date in reportname but allow
+         date placeholders
+
+
+----------------------------------------------------------------------
+changes grouped by date, sorted by filename
+----------------------------------------------------------------------
+
+
+2007-11-29
+----------
+check_passwd.py
+    chg: main: added debug output in verbose mode
+scan_last.py
+    add: parse_lastcommands: sort output ascending
+wdlib.py
+    fix: redirect_stdout: accept UNIX style '-' to direct output to stdout
+    add: opens(): sorts filename list
+    del: deleted old_printTopN()
+wdux.py
+    fix: convert_conf: test for and prefix 'DAILY' string using OS specific
+         routines
+
+2007-12-05
+----------
+wdux.py
+    chg: dailydir: use wdlib.datestr() like everywhere else
+    chg: get_reportname: do not force date in reportname but allow
+         date placeholders
